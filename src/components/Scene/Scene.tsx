@@ -1,30 +1,22 @@
 "use client";
-import vertexShader from "./vertex.vert";
-import fragmentShader from "./fragment.frag";
-import { Canvas } from "@react-three/fiber";
+import { cn } from "@/utils/cn";
 import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
-export const Scene = () => {
-  const randomArray = new Float32Array((32 + 1) * (32 + 1)).map(() =>
-    Math.random()
-  );
-
+export const Scene = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <Canvas className="fixed bg-black inset-0 w-screen h-screen">
+    <Canvas
+      className={cn("bg-black", className)}
+      camera={{ position: [0, 0, 10] }}
+    >
       <OrbitControls />
-      <mesh>
-        <planeGeometry args={[10, 10, 32, 32]}>
-          <bufferAttribute
-            attach="attributes-aRandom"
-            args={[randomArray, 1]}
-          />
-        </planeGeometry>
-        <rawShaderMaterial
-          transparent
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-        />
-      </mesh>
+      {children}
     </Canvas>
   );
 };
