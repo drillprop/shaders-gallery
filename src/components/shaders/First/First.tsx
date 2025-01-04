@@ -1,6 +1,6 @@
 import vertexShader from "./firstVertex.vert";
 import fragmentShader from "./firstFragment.frag";
-import { Scene } from "../Scene/Scene";
+import { Scene } from "../../Scene/Scene";
 
 export const First = () => {
   const randomArray = new Float32Array((32 + 1) * (32 + 1)).map(() =>
