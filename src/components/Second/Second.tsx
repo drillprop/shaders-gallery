@@ -1,12 +1,11 @@
-import vertexShader from "./firstVertex.vert";
-import fragmentShader from "./firstFragment.frag";
+import vertexShader from "./secondVertex.vert";
+import fragmentShader from "./secondFragment.frag";
 import { Scene } from "../Scene/Scene";
 
-export const First = () => {
+export const Second = () => {
   const randomArray = new Float32Array((32 + 1) * (32 + 1)).map(() =>
     Math.random()
   );
-
   return (
     <Scene>
       <mesh>
