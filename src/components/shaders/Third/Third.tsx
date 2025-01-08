@@ -1,7 +1,7 @@
 "use client";
 
-import vertexShader from "./thirdVertex.vert";
-import fragmentShader from "./thirdFragment.frag";
+import { vertexShader } from "./thirdVertex";
+import { fragmentShader } from "./thirdFragment";
 import { Scene } from "../../Scene/Scene";
 import { useMemo } from "react";
 import { Vector2 } from "three";

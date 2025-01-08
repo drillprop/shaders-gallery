@@ -1,5 +1,5 @@
-import vertexShader from "./secondVertex.vert";
-import fragmentShader from "./secondFragment.frag";
+import { vertexShader } from "./secondVertex";
+import { fragmentShader } from "./secondFragment";
 import { Scene } from "../../Scene/Scene";
 
 export const Second = () => {
