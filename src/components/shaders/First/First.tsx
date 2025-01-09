@@ -1,6 +1,5 @@
-import vertexShader from "./firstVertex.vert";
 import fragmentShader from "./firstFragment.frag";
-import { Scene } from "../../Scene/Scene";
+import vertexShader from "./firstVertex.vert";
 
 export const First = () => {
   const randomArray = new Float32Array((32 + 1) * (32 + 1)).map(() =>
@@ -8,20 +7,15 @@ export const First = () => {
   );
 
   return (
-    <Scene>
-      <mesh>
-        <planeGeometry args={[10, 10, 32, 32]}>
-          <bufferAttribute
-            attach="attributes-aRandom"
-            args={[randomArray, 1]}
-          />
-        </planeGeometry>
-        <rawShaderMaterial
-          transparent
-          vertexShader={vertexShader}
-          fragmentShader={fragmentShader}
-        />
-      </mesh>
-    </Scene>
+    <mesh>
+      <planeGeometry args={[10, 10, 32, 32]}>
+        <bufferAttribute attach="attributes-aRandom" args={[randomArray, 1]} />
+      </planeGeometry>
+      <rawShaderMaterial
+        transparent
+        vertexShader={vertexShader}
+        fragmentShader={fragmentShader}
+      />
+    </mesh>
   );
 };
