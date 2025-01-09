@@ -8,14 +8,46 @@ import { Scene } from "@/components/Scene/Scene";
 export default function ThirdShaderPage() {
   const guiRef = useRef<GUI | null>(null);
   const [frequency, setFrequency] = useState({
-    x: 10,
+    x: 40,
     y: 20,
+  });
+  const [rgb, setRgb] = useState({
+    r: 0.6,
+    g: 0.3,
+    b: 0.1,
   });
 
   useEffect(() => {
     guiRef.current = new GUI();
 
     const gui = guiRef.current;
+
+    gui
+      .add(rgb, "r")
+      .min(0)
+      .max(1)
+      .step(0.01)
+      .onChange((value: number) => {
+        setRgb((prev) => ({ ...prev, r: value }));
+      });
+
+    gui
+      .add(rgb, "g")
+      .min(0)
+      .max(1)
+      .step(0.01)
+      .onChange((value: number) => {
+        setRgb((prev) => ({ ...prev, g: value }));
+      });
+
+    gui
+      .add(rgb, "b")
+      .min(0)
+      .max(1)
+      .step(0.01)
+      .onChange((value: number) => {
+        setRgb((prev) => ({ ...prev, b: value }));
+      });
 
     gui
       .add(frequency, "x")
@@ -45,7 +77,7 @@ export default function ThirdShaderPage() {
 
   return (
     <Scene>
-      <Third x={frequency.x} y={frequency.y} />
+      <Third x={frequency.x} y={frequency.y} r={rgb.r} g={rgb.g} b={rgb.b} />
     </Scene>
   );
 }

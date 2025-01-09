@@ -2,23 +2,33 @@
 
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { Vector2 } from "three";
+import { Vector2, Vector3 } from "three";
 import fragmentShader from "./thirdFragment.frag";
 import vertexShader from "./thirdVertex.vert";
 
 type ThirdProps = {
   x?: number;
   y?: number;
+  r?: number;
+  g?: number;
+  b?: number;
 };
 
-export const Third = ({ x = 10, y = 20 }: ThirdProps) => {
+export const Third = ({
+  x = 10,
+  y = 40,
+  r = 0.6,
+  g = 0.3,
+  b = 0.1,
+}: ThirdProps) => {
   const uniforms = useRef({
     uFrequency: { value: new Vector2(x, y) },
+    uRGB: { value: new Vector3(r, g, b) },
   });
 
   useFrame(() => {
-    uniforms.current.uFrequency.value.x = x;
-    uniforms.current.uFrequency.value.y = y;
+    uniforms.current.uFrequency.value = new Vector2(x, y);
+    uniforms.current.uRGB.value = new Vector3(r, g, b);
   });
 
   return (

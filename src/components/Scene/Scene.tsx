@@ -6,14 +6,16 @@ import { Canvas } from "@react-three/fiber";
 export const Scene = ({
   children,
   className,
+  cameraPosition = [0, 0, 1],
 }: {
   children: React.ReactNode;
   className?: string;
+  cameraPosition?: [number, number, number];
 }) => {
   return (
     <Canvas
       className={cn("bg-black", className)}
-      camera={{ position: [0, 0, 10] }}
+      camera={{ position: cameraPosition }}
     >
       <OrbitControls />
       {children}

@@ -4,7 +4,7 @@ import vertexShader from "./secondVertex.vert";
 export const Second = () => {
   return (
     <mesh>
-      <planeGeometry args={[10, 10, 32, 32]} />
+      <planeGeometry args={[1, 1, 32, 32]} />
       <rawShaderMaterial
         transparent
         vertexShader={vertexShader}

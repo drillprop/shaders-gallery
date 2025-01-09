@@ -8,7 +8,7 @@ export const First = () => {
 
   return (
     <mesh>
-      <planeGeometry args={[10, 10, 32, 32]}>
+      <planeGeometry args={[1, 1, 32, 32]}>
         <bufferAttribute attach="attributes-aRandom" args={[randomArray, 1]} />
       </planeGeometry>
       <rawShaderMaterial
