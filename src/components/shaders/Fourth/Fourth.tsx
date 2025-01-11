@@ -2,7 +2,7 @@
 
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { Color, Vector2, Vector3 } from "three";
+import { Vector2 } from "three";
 import fragmentShader from "./fourthFragment.frag";
 import vertexShader from "./fourthVertex.vert";
 

@@ -4,6 +4,7 @@ import { Third } from "@/components/shaders/Third/Third";
 import { useRef, useEffect, useState } from "react";
 import GUI from "lil-gui";
 import { Scene } from "@/components/Scene/Scene";
+import { useDebugParam } from "@/hooks/useDebugParam";
 
 export default function ThirdShaderPage() {
   const guiRef = useRef<GUI | null>(null);
@@ -16,8 +17,12 @@ export default function ThirdShaderPage() {
     g: 0.3,
     b: 0.1,
   });
+  const isDebugOn = useDebugParam();
 
   useEffect(() => {
+    if (!isDebugOn) {
+      return;
+    }
     guiRef.current = new GUI();
 
     const gui = guiRef.current;

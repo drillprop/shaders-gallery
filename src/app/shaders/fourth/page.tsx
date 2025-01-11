@@ -1,9 +1,10 @@
 "use client";
 
-import { Fourth } from "@/components/shaders/Fourth/Fourth";
-import { useRef, useEffect, useState } from "react";
-import GUI from "lil-gui";
 import { Scene } from "@/components/Scene/Scene";
+import { Fourth } from "@/components/shaders/Fourth/Fourth";
+import { useDebugParam } from "@/hooks/useDebugParam";
+import GUI from "lil-gui";
+import { useEffect, useRef, useState } from "react";
 
 export default function FourthShaderPage() {
   const guiRef = useRef<GUI | null>(null);
@@ -12,7 +13,12 @@ export default function FourthShaderPage() {
     y: 5,
   });
 
+  const isDebugOn = useDebugParam();
+
   useEffect(() => {
+    if (!isDebugOn) {
+      return;
+    }
     guiRef.current = new GUI();
 
     const gui = guiRef.current;
