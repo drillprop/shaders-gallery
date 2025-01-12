@@ -8,21 +8,22 @@ type GuiControl = {
   step?: number;
 };
 
-type GuiControls = Record<string, GuiControl>;
-
-type GuiState = Record<string, number>;
+type GuiControls<T extends Record<string, number>> = {
+  [K in keyof T]?: GuiControl;
+};
 
 type GuiConstructorOptions = ConstructorParameters<typeof GUI>[0];
 
-export const useGui = (
-  initialState: GuiState,
-  controls: GuiControls = {},
+export const useGui = <T extends Record<string, number>>(
+  initialState: T,
+  controls: GuiControls<T> = {} as GuiControls<T>,
   options?: GuiConstructorOptions
 ) => {
   const guiRef = useRef<GUI | null>(null);
   const isDebugOn = useDebugParam();
 
   const initialStateRef = useRef(initialState);
+  const controlsRef = useRef(controls);
   const [guiState, setGuiState] = useState(initialState);
 
   useEffect(() => {
@@ -40,15 +41,15 @@ export const useGui = (
     Object.entries(initialStateRef.current).forEach(([key]) => {
       const controller = gui.add(initialStateRef.current, key);
 
-      if (controls[key]) {
-        const { min, max, step } = controls[key];
+      if (controlsRef.current[key]) {
+        const { min, max, step } = controlsRef.current[key];
         if (typeof min === "number") controller.min(min);
         if (typeof max === "number") controller.max(max);
         if (typeof step === "number") controller.step(step);
       }
 
       controller.onChange((value: number) => {
-        setGuiState((prev: GuiState) => ({ ...prev, [key]: value }));
+        setGuiState((prev: T) => ({ ...prev, [key]: value }));
       });
     });
 
@@ -58,7 +59,7 @@ export const useGui = (
         guiRef.current = null;
       }
     };
-  }, [isDebugOn, controls, options?.title, options?.width]);
+  }, [isDebugOn, options?.title, options?.width]);
 
   return guiState;
 };
