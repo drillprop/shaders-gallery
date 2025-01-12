@@ -3,6 +3,7 @@ import { First } from "@/components/shaders/First/First";
 import { Second } from "@/components/shaders/Second/Second";
 import { Third } from "@/components/shaders/Third/Third";
 import { Fourth } from "@/components/shaders/Fourth/Fourth";
+import { Fifth } from "@/components/shaders/Fifth/Fifth";
 
 export default function Home() {
   return (
@@ -19,6 +20,9 @@ export default function Home() {
         </ShaderCard>
         <ShaderCard title="Fourth" url="/shaders/fourth">
           <Fourth />
+        </ShaderCard>
+        <ShaderCard title="Fifth" url="/shaders/fifth">
+          <Fifth />
         </ShaderCard>
       </section>
     </main>
