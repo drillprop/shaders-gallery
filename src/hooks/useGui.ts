@@ -20,21 +20,19 @@ export const useGui = <T extends Record<string, number>>(
   options?: GuiConstructorOptions
 ) => {
   const guiRef = useRef<GUI | null>(null);
-  const isDebugOn = useDebugParam();
+  const { debug } = useDebugParam();
 
   const initialStateRef = useRef(initialState);
   const controlsRef = useRef(controls);
+  const optionsRef = useRef(options);
   const [guiState, setGuiState] = useState(initialState);
 
   useEffect(() => {
-    if (!isDebugOn) {
+    if (!debug) {
       return;
     }
 
-    guiRef.current = new GUI({
-      title: options?.title,
-      width: options?.width,
-    });
+    guiRef.current = new GUI(optionsRef.current);
 
     const gui = guiRef.current;
 
@@ -59,7 +57,7 @@ export const useGui = <T extends Record<string, number>>(
         guiRef.current = null;
       }
     };
-  }, [isDebugOn, options?.title, options?.width]);
+  }, [debug]);
 
   return guiState;
 };
