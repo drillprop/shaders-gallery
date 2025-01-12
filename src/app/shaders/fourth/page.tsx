@@ -6,12 +6,14 @@ import { useDebugParam } from "@/hooks/useDebugParam";
 import GUI from "lil-gui";
 import { useEffect, useRef, useState } from "react";
 
+const initialFrequency = {
+  x: 2,
+  y: 5,
+};
+
 export default function FourthShaderPage() {
   const guiRef = useRef<GUI | null>(null);
-  const [frequency, setFrequency] = useState({
-    x: 2,
-    y: 5,
-  });
+  const [frequency, setFrequency] = useState(initialFrequency);
 
   const isDebugOn = useDebugParam();
 
@@ -24,7 +26,7 @@ export default function FourthShaderPage() {
     const gui = guiRef.current;
 
     gui
-      .add(frequency, "x")
+      .add(initialFrequency, "x")
       .min(0)
       .max(50)
       .step(0.01)
@@ -33,7 +35,7 @@ export default function FourthShaderPage() {
       });
 
     gui
-      .add(frequency, "y")
+      .add(initialFrequency, "y")
       .min(0)
       .max(50)
       .step(0.01)
@@ -47,7 +49,7 @@ export default function FourthShaderPage() {
         guiRef.current = null;
       }
     };
-  }, []);
+  }, [isDebugOn]);
 
   return (
     <Scene>
