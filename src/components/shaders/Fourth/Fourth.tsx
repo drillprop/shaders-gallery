@@ -25,7 +25,7 @@ export const Fourth = ({ x = 2, y = 5 }: FourthProps) => {
   return (
     <mesh scale={[1, 2 / 3, 1]}>
       <planeGeometry args={[1, 1, 32, 32]} />
-      <rawShaderMaterial
+      <shaderMaterial
         transparent
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}

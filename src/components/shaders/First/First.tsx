@@ -11,7 +11,7 @@ export const First = () => {
       <planeGeometry args={[1, 1, 32, 32]}>
         <bufferAttribute attach="attributes-aRandom" args={[randomArray, 1]} />
       </planeGeometry>
-      <rawShaderMaterial
+      <shaderMaterial
         transparent
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}

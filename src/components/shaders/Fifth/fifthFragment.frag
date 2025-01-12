@@ -1,4 +1,8 @@
 precision mediump float;
+
+uniform vec2 uFrequency;
+uniform float uTime;
+
 varying vec3 vPosition;
 varying float vElevation;
 varying vec2 vUv;

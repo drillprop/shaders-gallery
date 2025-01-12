@@ -5,7 +5,7 @@ export const Second = () => {
   return (
     <mesh>
       <planeGeometry args={[1, 1, 32, 32]} />
-      <rawShaderMaterial
+      <shaderMaterial
         transparent
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
