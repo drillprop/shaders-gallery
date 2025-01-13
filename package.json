@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-shader": "./scripts/create-shader.sh"
   },
   "dependencies": {
     "@react-three/drei": "^9.120.4",
