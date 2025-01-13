@@ -3,6 +3,7 @@ import { Scene } from "../Scene/Scene";
 
 type ShaderCardProps = {
   title: string;
+
   children: React.ReactNode;
   url: string;
 };

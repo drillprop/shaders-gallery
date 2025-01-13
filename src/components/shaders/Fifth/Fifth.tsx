@@ -2,7 +2,7 @@
 
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import { Vector2 } from "three";
+import { DoubleSide, Vector2 } from "three";
 import fragmentShader from "./fifthFragment.frag";
 import vertexShader from "./fifthVertex.vert";
 
@@ -27,6 +27,7 @@ export const Fifth = ({ x = 2, y = 5 }: FifthProps) => {
       <planeGeometry args={[1, 1, 32, 32]} />
       <shaderMaterial
         transparent
+        side={DoubleSide}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms.current}
