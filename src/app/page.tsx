@@ -6,6 +6,7 @@ import { Fourth } from "@/components/shaders/Fourth/Fourth";
 import { Fifth } from "@/components/shaders/Fifth/Fifth";
 import { Sixth } from "@/components/shaders/Sixth/Sixth";
 import { Seventh } from "@/components/shaders/Seventh/Seventh";
+import { Eighth } from "@/components/shaders/Eighth/Eighth";
 import Link from "next/link";
 
 export default function Home() {
@@ -30,11 +31,12 @@ export default function Home() {
         <ShaderCard title="6" url="/shaders/6">
           <Sixth />
         </ShaderCard>
-        <Link href="/7" className="shader-link">
-          <ShaderCard title="7" url="/7">
-            <Seventh />
-          </ShaderCard>
-        </Link>
+        <ShaderCard title="7" url="/7">
+          <Seventh />
+        </ShaderCard>
+        <ShaderCard title="8" url="/shaders/8">
+          <Eighth />
+        </ShaderCard>
       </section>
     </main>
   );
