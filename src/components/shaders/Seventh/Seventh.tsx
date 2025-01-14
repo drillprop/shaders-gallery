@@ -1,5 +1,6 @@
 "use client";
 
+import { DoubleSide } from "three";
 import fragmentShader from "./seventhFragment.frag";
 import vertexShader from "./seventhVertex.vert";
 
@@ -11,6 +12,7 @@ export const Seventh = () => {
         transparent
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
+        side={DoubleSide}
       />
     </mesh>
   );
