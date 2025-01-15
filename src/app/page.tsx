@@ -8,6 +8,7 @@ import { Sixth } from "@/components/shaders/Sixth/Sixth";
 import { Seventh } from "@/components/shaders/Seventh/Seventh";
 import { Eighth } from "@/components/shaders/Eighth/Eighth";
 import { Ninth } from "@/components/shaders/Ninth/Ninth";
+import { Tenth } from "@/components/shaders/Tenth/Tenth";
 
 export default function Home() {
   return (
@@ -41,7 +42,7 @@ export default function Home() {
           <Ninth />
         </ShaderCard>
         <ShaderCard title="10" url="/shaders/10">
-          <Ninth />
+          <Tenth />
         </ShaderCard>
       </section>
     </main>
