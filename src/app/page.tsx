@@ -40,6 +40,9 @@ export default function Home() {
         <ShaderCard title="9" url="/shaders/9">
           <Ninth />
         </ShaderCard>
+        <ShaderCard title="10" url="/shaders/10">
+          <Ninth />
+        </ShaderCard>
       </section>
     </main>
   );
