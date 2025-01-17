@@ -32,6 +32,7 @@ cat > "$dir/$name.tsx" << EOL
 
 import fragmentShader from "./${name_lower}Fragment.frag";
 import vertexShader from "./${name_lower}Vertex.vert";
+import { DoubleSide } from "three";
 
 export const $name = () => {
   return (
@@ -41,6 +42,7 @@ export const $name = () => {
         transparent
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
+        side={DoubleSide}
       />
     </mesh>
   );
