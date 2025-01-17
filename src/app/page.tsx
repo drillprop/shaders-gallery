@@ -9,6 +9,7 @@ import { Seventh } from "@/components/shaders/Seventh/Seventh";
 import { Eighth } from "@/components/shaders/Eighth/Eighth";
 import { Ninth } from "@/components/shaders/Ninth/Ninth";
 import { Tenth } from "@/components/shaders/Tenth/Tenth";
+import { Eleventh } from "@/components/shaders/Eleventh/Eleventh";
 
 export default function Home() {
   return (
@@ -32,7 +33,7 @@ export default function Home() {
         <ShaderCard title="6" url="/shaders/6">
           <Sixth />
         </ShaderCard>
-        <ShaderCard title="7" url="/7">
+        <ShaderCard title="7" url="/shaders/7">
           <Seventh />
         </ShaderCard>
         <ShaderCard title="8" url="/shaders/8">
@@ -43,6 +44,9 @@ export default function Home() {
         </ShaderCard>
         <ShaderCard title="10" url="/shaders/10">
           <Tenth />
+        </ShaderCard>
+        <ShaderCard title="11" url="/shaders/11">
+          <Eleventh />
         </ShaderCard>
       </section>
     </main>
