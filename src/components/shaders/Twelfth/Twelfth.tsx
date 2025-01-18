@@ -14,6 +14,7 @@ export const Twelfth = () => {
   useFrame(({ clock }) => {
     ref.current.uTime.value = clock.getElapsedTime();
   });
+
   return (
     <mesh>
       <planeGeometry args={[1, 1, 32, 32]} />
